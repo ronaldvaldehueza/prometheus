@@ -1,0 +1,501 @@
+﻿.navbar-wrapper {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 45%, rgba(200, 240, 255, 0.1) 122%)!important;
+    height: 60px;
+    position: fixed;
+    /* box-shadow: var(--thinly-spread-shadow); */
+    z-index: 10;
+    /* background-color: ; */
+}
+
+.navbar-header {
+    min-height: 7rem;
+    max-height: 7rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: content-box !important;
+}
+
+.navbar-container {
+    /* backdrop-filter: blur(5px); */
+    background: transparent !important;
+}
+.header-navbar {
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    background: transparent /* rgba(255, 255, 255, 0.6)*/ !important;
+}
+
+.header-navbar-shadow {
+    visibility: hidden;
+    /* min-height: 80px;
+    max-height: 80px; */
+}
+
+.navbar-floating .header-navbar-shadow {
+    background: linear-gradient(322deg, rgba(255, 255, 255, 0.4) 20% rgba(100, 200, 255, 0) 90%) !important;
+    left: 0;
+}
+/* End Header */
+
+.content.app-content {
+    padding:  calc(2rem + 2.45rem + 1.3rem) 2rem 0 !important;  
+    /* padding: calc(2rem + 4.45rem + 1.3rem) 2rem 0; */
+}
+ 
+.content-header {
+    position: fixed;
+    top: 15px;
+    width: 60%; /* 25% allows (upper right) quick access icons to be clickable */
+    z-index: 50;
+}
+/* End layout management */
+
+/* Start Menu */
+/* Menu background */
+/* Structure::after
+    div.main-menu
+        ul.navigation
+            li.nav-item
+                a
+                    svg
+                    span.menu-item
+            li.nav-item.has-sub.open
+                a
+                    ul.menu-content
+                        li.nav-item
+                        li.nav-item.has-sub.open
+
+*/
+div.main-menu {
+    background: var(--pagesidebar-background) !important;
+    backdrop-filter: blur(3px) !important;
+    box-shadow: var(--thin-shadow) !important;
+}
+
+/* Default Menu, and submenu text color, spacing, and background*/
+div.main-menu ul.navigation {
+    font: 400 0.975rem "Roboto" !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+div.main-menu ul.navigation > li.nav-item > a {
+    padding: 10px 15px 10px 23px !important;
+    margin-left: 0 !important;
+}
+div.main-menu ul.navigation > li.nav-item > a > span.menu-item, 
+div.main-menu ul.navigation > li.nav-item > a > span.menu-title,
+.menu-item, label.menu-open-button,
+.main-menu .navigation li a {
+    text-decoration: none;
+    color: rgb(var(--theme-rgb-primary-200)) !important;
+}
+div.main-menu ul.navigation > li.nav-item > a > span.menu-item, 
+div.main-menu ul.navigation > li.nav-item > a > span.menu-title {
+    padding-left: 30px !important;
+} 
+div.main-menu ul.navigation > li.nav-item.has-sub > a ~ ul.menu-content > div > li.nav-item > a {
+    /* / margin-left: 7px !important; / */
+    padding-left: 37px !important;
+}
+div.main-menu ul.navigation > li.nav-item.has-sub > a ~ ul.menu-content > div > li.nav-item > a ~ ul.menu-content > div > li.nav-item > a{
+    padding-left: 80px !important;
+}
+div.main-menu ul.navigation > li > ul li.has-sub > a {
+    margin-left: 0 !important;
+}
+div.main-menu ul.navigation > li ul li ul a:not( > a) {
+    padding-left: 64px !important;
+}
+
+div.main-menu ul.navigation > li.nav-item.has-sub > ul.menu-content   li.nav-item > a > span.menu-item, 
+div.main-menu ul.navigation > li.nav-item.has-sub > ul.menu-content   li.nav-item > a > span.menu-title {
+    padding-left: 36px !important;
+}
+div.main-menu ul.navigation > li.nav-item.has-sub > ul.menu-content   li.nav-item.has-sub > ul.menu-content   li.nav-item > a > span.menu-item, 
+div.main-menu ul.navigation > li.nav-item.has-sub > ul.menu-content   li.nav-item.has-sub > ul.menu-content   li.nav-item > a > span.menu-title {
+    padding-left: 23px !important;
+}
+
+div.main-menu li.nav-item svg {
+    color: rgb(var(--theme-rgb-accent-900)) !important;
+    text-decoration: none;
+}
+div.main-menu li.nav-item.has-sub.open ul.menu-content {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+div.main-menu ul.navigation > li.navigation-header {
+    margin-left: 23px !important;
+}
+div.main-menu ul.navigation li.navigation-header span {
+    color: rgb(var(--theme-rgb-primary-500))
+}
+
+div.main-menu ul.navigation .me-1 {
+    margin-right: 2.5rem !important;
+}
+
+div.main-menu ul.navigation li.has-sub.open .menu-content li.nav-item {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+div.main-menu ul.navigation li.has-sub.open ul.menu-content  {
+    animation: pullDown 1s linear;
+}
+
+div.main-menu ul.navigation li.has-sub.open .menu-content li.nav-item span:is(.menu-item, .menu-title) {
+    animation: typeFadeIn 1.3s linear; /* 2sec duration makes the type quick but the fade in take too long */
+}
+
+/* Start handling collapsing display */
+/* div.main-menu ul.navigation > li.nav-item > ul.menu-content > div { 
+    * For debugging only *
+    * min-height: 200px;  *
+} */
+
+div.main-menu ul.navigation > li.nav-item > ul.menu-content > div.collapsing > li.nav-item {
+    margin-left: 0px !important;
+}
+
+div.main-menu ul.navigation > li.nav-item.has-sub > ul.menu-content > div.collapsing > li.nav-item > a > svg
+ {
+    margin-right: 0px !important;
+}
+div.main-menu ul.navigation > li.nav-item > ul.menu-content > div.collapsing > li.nav-item > a > svg {
+    width: 8px !important; height: 8px !important;
+    fill: rgb(var(--theme-rgb-primary-300)) !important;
+}
+/* End handling collapsing display */
+
+
+/* Default Menu icon, and arrow color */
+div.main-menu ul.navigation li.has-sub > a:after {
+    background: none !important;
+    content: "\f107" !important;
+    color: rgb(var(--theme-rgb-accent-900)) !important;
+    font-family: 'Font Awesome 5 Pro' !important;
+    font-weight: 300;
+    top: 7px !important;
+    font-size: 20px !important;
+    transform: none !important;
+}
+div.main-menu ul.navigation li.has-sub.open > a:after {
+    background: none !important;
+    content: "\f106" !important;
+    font-family: 'Font Awesome 5 Pro' !important;
+    font-weight: 300;
+    transform: none !important;
+}
+div.menu-expanded div.main-menu ul.navigation > a:after {
+    display: none !important; /* inline-block */
+}
+div.main-menu ul.navigation > li > a, 
+div.main-menu ul.navigation > li > a svg, 
+div.main-menu ul.navigation > li > a i {
+    margin-left: 7px !important;
+    margin-right: 0 !important;
+}
+div.main-menu ul.navigation li.nav-item.has-sub.open.sidebar-group-active > a {
+    color: white !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    /* margin-left: 7px !important; */
+    margin-right: 0 !important;
+    text-decoration: none !important;
+}
+
+
+/* Default Menu icon background */
+/* Default Submenu Bullet */
+div.main-menu ul.navigation li.has-sub.open ul.menu-content li.nav-item svg {
+    margin-right: 0 !important;
+    stroke: rgb(var(--theme-rgb-accent-500)) !important;
+    fill: rgb(var(--theme-rgb-primary-300)) !important;
+    stroke-width: 3px;
+    width: 8px;
+    height: 8px;
+}
+
+/* Default Submenu vertical line */
+div.main-menu ul.navigation li.has-sub.open .menu-content:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 41px;
+    top: 35px;
+    bottom: 19px;
+    border-left: 1px solid rgb(var(--theme-rgb-accent-1100));
+}
+
+/* Other Submenu settings */
+.main-menu.menu-light .navigation > li > ul li.has-sub > a {
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Active, hover, focus Menu text color and background  */
+div.main-menu ul.navigation a.active {
+    /* color: white !important; */
+    /* background: rgba(0, 0, 0, 0.1) !important; */
+    box-shadow: none !important;
+}
+div.main-menu ul.navigation li.nav-item:active {
+    color: rgb(var(--theme-rgb-primary-300)) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+div.main-menu ul.navigation li.nav-item:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+div.main-menu ul.navigation li.nav-item:hover > a > span {
+    color: white !important;
+}
+div.main-menu ul.navigation li.nav-item:hover > a > svg {
+    color: rgb(var(--theme-rgb-accent-200)) !important;
+}
+/* Active, hover Submenu text color and background */
+div.main-menu ul.navigation li.has-sub.open ul.menu-content li.nav-item:hover {
+    margin-left: 0 !important;
+}
+
+div.main-menu ul.navigation > li.open:not(.menu-item-closing) > a,  div.main-menu ul.navigation > li.sidebar-group-active > a {
+    background: none !important;
+    border-radius: 0 !important;
+    color: white !important;
+}
+
+div.main-menu ul.navigation > li ul .open > a, 
+div.main-menu ul.navigation > li ul .sidebar-group-active > a {
+    background: none;
+    border-radius: 0;
+}
+
+/* Focus Submenu item */
+/* Active, hover, and focus Menu icon*/
+div.main-menu ul.navigation li.nav-item a:hover > * {
+    transform: none !important; /* translateX(5px); */
+}
+div.main-menu ul.navigation > li.nav-item > a.active > span {
+    color: rgb(var(--theme-rgb-accent-900)) !important; /* Highlights the currently executed/presented Menu item */
+}
+div.main-menu ul.navigation > li.nav-item:has( > a.active) {
+    background: rgba(var(--theme-rgb-accent-1100), 0.2) !important;
+    border-right: 4px solid rgb(var(--theme-rgb-accent-800));
+}
+div.main-menu ul.navigation li.nav-item a.active > * {
+    color: rgb(var(--theme-rgb-accent-900)) !important; /* Highlights the currently executed/presented Submenu item. Note li.nav-item is a sub menu item nearest a.active  */
+}
+div.main-menu ul.navigation li.nav-item :has( > a.active) {
+    background: rgba(var(--theme-rgb-accent-1100), 0.2) !important;
+    border-right: 4px solid rgb(var(--theme-rgb-accent-800));
+}
+div.main-menu ul.navigation > li.nav-item > a:has(+ ul.menu-content li.nav-item > a.active) > span {
+    /* Highlights the Root Menu span of currently executed/presented Menu/Submenu item */
+    color: rgb(var(--theme-rgb-accent-200)) !important; 
+}
+div.main-menu ul.navigation > li.nav-item > a:has(+ ul.menu-content li.nav-item > a.active) {
+    /* Highlights the Root Menu link of currently executed/presented Menu/Submenu item */
+    background: rgba(var(--theme-rgb-accent-1100), 0.2) !important;
+}
+div.main-menu ul.navigation > li.nav-item ul.menu-content li.nav-item:has( > a + ul.menu-content li.nav-item > a.active):not( > *) {
+    /* Highlights the Parent nav-item of currently executed/presented Menu/Submenu item */
+    background: rgba(var(--theme-rgb-accent-1100), 0.2) !important;
+}
+div.main-menu ul.navigation > li.nav-item ul.menu-content li.nav-item > a:has(+ ul.menu-content li.nav-item > a.active) {
+    /* Overrides bundled setting */
+    background: rgba(var(--theme-rgb-accent-1100), 0.2) !important;
+}
+div.main-menu ul.navigation > li.nav-item ul.menu-content li.nav-item > a:has(+ ul.menu-content li.nav-item > a.active) > span {
+    color: rgb(var(--theme-rgb-accent-1100)) !important; /* Highlights the 3rd Level Menu Item of currently executed/presented Menu/Submenu item */
+}
+
+div.main-menu ul.navigation li.nav-item a.active {
+    background: none !important;
+}
+
+/* div.main-menu ul.navigation li.nav-item.has-sub.sidebar-group-active > a :not(:has(a.active)) > span {
+    color: blue !important; test
+    / rgb(var(--theme-rgb-accent-900)) /
+} */
+
+/* Active, hover, and focus Menu arrow */
+/* Active, hover Submenu vertical line */
+
+.navigation-main, div.main-menu .ps__rail-y  {
+    background: transparent !important;
+}
+
+div.main-menu ul.navigation span.menu-item, div.main-menu ul.navigation label.menu-open-button {
+    background: transparent;
+}
+
+div.main-menu ul.navigation span.menu-item:hover, .menu-open-button:hover {
+    background: none;
+}
+
+/* End Menu */
+
+/* Start icons in general */
+
+/* .theme-avtar {
+    border-radius: 100px;
+
+} */
+
+.header-navbar .navbar-container ul.navbar-nav li > a.nav-link {
+    color: rgb(var(--theme-rgb-primary-500)) !important;
+}
+
+/* End icons in general */
+
+/* Start Authentication */
+/* @media (max-height: 825px) and (max-width: 991.98px) {
+.auth-wrapper .auth-inner {
+    background-color: ;
+}
+} */
+.auth-wrapper.auth-cover {
+    background: url('images/backgrounds/beachresort.jpg') center / cover !important;
+}
+.auth-inner .auth-bg {
+    border-radius: 20px !important;
+    border-top: 1px solid rgba(255,255,255,0.8);
+    background: rgba(1, 252, 239, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: var(--thinly-spread-shadow), 10px 10px 10px 0px rgba(var(--darkgray-200), 0.2);
+}
+
+/* End Authentication */
+
+
+/* Start misc doodads that do not seem reusable */
+
+/* End misc doodads */
+
+/* Bootstrap Validation Summary Override */
+/* .validation-summary-valid {
+    display: none;
+}
+
+.validation-summary-errors ul {
+    margin-bottom: 0;
+    padding-left: 1rem;
+}
+
+.alert.validation-summary-errors {
+    margin-bottom: 1rem;
+}
+
+.col-0 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 4.166665%;
+    flex: 0 0 4.166665%;
+    max-width: 4.166665%;
+    width: 4.166665%;
+}
+
+.col-1 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 8.33333%;
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+    width: 8.33333%;
+}
+
+.col-2 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 16.66666%;
+    flex: 0 0 16.66666%;
+    max-width: 16.66666%;
+    width: 16.66666%;
+}
+
+.dataTables_empty {
+    font-size: 1.5rem !important;
+}
+
+/ Reference classes, no implementation /
+.base,
+.needs-validation,
+.flex-start,
+.text-faded,
+.app-container-demo,
+.lang-js,
+.lang-csharp,
+.has-tooltip,
+.has-popover {
+}
+
+/ Keeps analyzers happy /
+.js-waves-off,
+.js-waves-on,
+.js-get-date,
+.js-collapse,
+.js-modal-settings,
+.js-filter-message,
+.js-buttons,
+.js-icon-class,
+.js-icon-copy,
+.js-bg-color,
+.js-bg-gradient,
+.js-bg-gradient-demo,
+.js-bg-target {
+}
+
+/ Small word wrap correction /
+section > ol > li {
+    word-break: break-all;
+}
+
+code {
+    border: 1px solid silver;
+    padding: 0.03rem 0.2rem !important;
+}
+
+pre.prettyprint {
+    border-radius: 0.2rem;
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+}
+
+.documentation h2 {
+    color: var(--primary);
+}
+
+.documentation th:first-child,
+.documentation th:nth-child(3) {
+    width: 16%;
+}
+
+.documentation blockquote {
+    margin-left: 1rem;
+    padding: 1rem 1rem 0.01rem 1rem;
+    font-weight: 400;
+    border-radius: 0 4px 4px 0;
+    background: #edf2f9;
+    border-left: 3px solid var(--primary);
+}
+
+    .documentation blockquote.info {
+        background: #edf2f9;
+        border-left: 3px solid var(--info);
+    }
+
+    .documentation blockquote.warning {
+        background: #fff4db;
+        border-left: 3px solid var(--warning);
+    }
+
+    .documentation blockquote.danger {
+        background: #fadeeb;
+        border-left: 3px solid var(--danger);
+    } */
+
+/* Enter custom CSS rules for your application here */

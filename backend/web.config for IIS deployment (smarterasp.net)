@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="iisnode" path="server.js" verb="*" modules="iisnode"/>
+    </handlers>
+
+    <rewrite>
+      <rules>
+        <rule name="NodeRouting" stopProcessing="true">
+          <match url=".*"/>
+          <action type="Rewrite" url="server.js"/>
+        </rule>
+      </rules>
+    </rewrite>
+
+    <security>
+      <requestFiltering allowDoubleEscaping="true"/>
+    </security>
+
+    <httpErrors errorMode="Detailed"/>
+  </system.webServer>
+
+  <system.web>
+    <customErrors mode="Off"/>
+  </system.web>
+</configuration>

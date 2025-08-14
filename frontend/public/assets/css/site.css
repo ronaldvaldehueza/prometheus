@@ -1,0 +1,162 @@
+﻿/* ERP G Overrides */
+:root {
+    font-size: 14px;
+
+    --bs-primary: var(--theme-primary) !important;
+    --bs-secondary: var(--theme-secondary) !important;
+    --bs-success: var(--theme-success) !important;
+    --bs-info: var(--theme-info) !important;
+    --bs-warning: var(--theme-warning) !important;
+    --bs-danger: var(--theme-danger) !important;
+}
+
+/* Start layout management */
+.navbar-header {
+    background: transparent !important;
+    height: 65px !important;;
+    max-height: 65px !important;
+    /* width: 20px !important; */
+}
+
+.navbar-brand {
+    width: 40px !important;
+}
+
+.navbar-brand img {
+    height: 40px !important;;
+    max-height: 40px !important;
+}
+
+.login-form {
+    background: rgba(218, 218, 218, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+    padding-inline: 70px;
+    padding-bottom: 60px;
+  }
+  
+.login-form .btn-success {
+    margin-top: 40px;
+}
+
+body:has(.login-form) {
+    background: url('images/backgrounds/13.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body:has(.content) {
+    background: url('images/backgrounds/40.jpg') no-repeat center center; 
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.right-panel {
+    background: transparent !important;
+}
+
+.right-panel header.header {
+    background: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 7px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    position: relative;
+    top: 10px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+}
+
+.content .col-lg-12:has(.card) {  
+    padding-inline: 0;
+}
+
+.left-panel {
+    background: transparent !important;
+}
+
+.left-panel .navbar{
+    background: rgba(239, 255, 249, 0.7) !important;
+    backdrop-filter: blur(9px);
+}
+
+.left-panel::-webkit-scrollbar {
+    width: 10px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+    background: rgba(1, 179, 255, 0.1); /* semi-transparent track */
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background: rgba(1, 179, 255, 0.2); /* semi-transparent thumb */
+    border-radius: 6px;
+}
+
+/* Firefox support */
+.left-panel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
+}
+  
+.site-footer {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.site-footer .footer-inner {
+    background: transparent !important;
+}
+
+.nav.navbar-nav li i/*, .nav.navbar-nav li a.dropdown-toggle::before */ {
+    font-size: 16px !important;
+    color: rgb(3, 155, 178) !important;
+}
+
+.nav.navbar-nav li:hover i {
+    color: rgb(0, 213, 142) !important;
+}
+
+.navbar .main-menu .nav .dropdown .sub-menu, .dropdown-menu {
+    background-color: white !important;
+    background: linear-gradient( -45deg, rgba(var(--theme-rgb-primary-100), 0.4) 10%, rgba(255, 255, 255, 0.6) 95%) !important;
+	/* backdrop-filter: blur(10px) !important; */
+	overflow: hidden;
+    border: 1px solid rgba(1, 179, 255, 0.2);
+}
+.navbar .main-menu .nav .dropdown .sub-menu::after {
+	content: "";
+	position:absolute;
+	width: 100%; height: 100%;
+	left: 0; top: 0;
+	z-index: -1;
+	background: linear-gradient( -45deg, rgba(var(--theme-rgb-primary-100), 0.4) 10%, rgba(255, 255, 255, 0.6) 95%) !important;
+	filter: contrast(30%) opacity(40%);
+}
+
+.navbar .main-menu .nav .dropdown .sub-menu li a:hover {
+    color: rgb(3, 155, 178) !important;
+    font-weight: 600;
+}
+
+.site-footer .footer-inner {
+    color: black !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+}
+
+.modal-backdrop {
+    position: relative;
+}
+
+.header-left .form-inline {
+    background: transparent !important;
+}
+
+.header-left .form-inline input {
+    background: rgb(255,255,255,0.4) !important;
+}
+
+.navbar-header .menutoggle i, .header-menu .header-left i {
+    color: black !important;
+}

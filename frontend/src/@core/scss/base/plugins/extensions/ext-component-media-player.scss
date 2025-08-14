@@ -1,0 +1,21 @@
+// ================================================================================================
+//  File Name: ext-component-media-player.scss
+//  Description: Media Player SCSS.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: WC9-ERP
+//  Author: World Cloud 9
+//  Author URL: http://www.worldcloud9.com
+// ================================================================================================
+
+// to remove outline on focus
+.audio-player {
+  &:focus {
+    outline: 0;
+  }
+}
+.plyr__controls {
+  justify-content: flex-start;
+}
+.plyr__progress {
+  flex-grow: 1;
+}

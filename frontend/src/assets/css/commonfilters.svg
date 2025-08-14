@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="filter" x="0" y="0" width="100%" height="100%">
+            <!-- Filter operations go here. E.g., <feGaussianBlur>, <feColorMatrix>, etc. -->
+        </filter>
+    </defs>
+</svg>
