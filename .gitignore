@@ -1,0 +1,44 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files
+*.env
+*.env.local
+*.env.development
+*.env.production
+
+# SQLite / Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploads / Temp files
+tmp/
+uploads/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+desktop.ini
+
+# Others
+backup/
+functional-documentation/
+doc.zip
