@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const config     = require('./config/connection.server.js')
 const initDB     = require('./db/init.sequelize.js')
 const testRoute  = require('./routes/test')
-const apiRoutes  = require('./routes/api')
+// const apiRoutes  = require('./routes/api')
 const uiRoutes   = require('./routes/routes')   //  hbs‐rendered views
 
 const app = express()
@@ -50,7 +50,7 @@ app.use(bodyParser.json())
 
 // 3. Mount API endpoints
 app.use('/api/test', testRoute)
-app.use('/api', apiRoutes)
+// app.use('/api', apiRoutes)
 
 // 4. Serve static assets for React app or any other frontend
 app.use(express.static(path.join(__dirname, 'views', 'assets')))
