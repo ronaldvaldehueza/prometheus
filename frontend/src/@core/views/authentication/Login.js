@@ -90,7 +90,7 @@ const Login = () => {
         ))
       })
       .catch(err => { 
-        console.log(err)
+        // * console.log(err)
         setError('loginEmail', {
           type: 'manual',
           message: err.response.data.error

@@ -43,11 +43,11 @@ const User = () => {
     userHTTPService.getAllUser()
       .then(response => {
         setUsers(response.data);
-        console.log(response.data)
+        // * console.log(response.data)
         setLoading(false)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 
@@ -96,7 +96,7 @@ const User = () => {
       setUpdatedItemId(e[0])
       const selectedItem = users.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

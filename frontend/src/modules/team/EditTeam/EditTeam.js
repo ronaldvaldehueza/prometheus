@@ -19,12 +19,12 @@ const EditTeam = (props) => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    // * console.log(data)
     teamHTTPService.editTeam(props.team.id, data).then(data => {
       props.closeModal()
       showMessage('Confirmation', "teamMessage.edit", 'success')
     }).catch(e => {
-      console.log(e)
+      // * console.log(e)
     })
 
   }

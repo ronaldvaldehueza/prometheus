@@ -29,10 +29,10 @@ const BtnSavePrint = ({domRefToSave, pageOrientation, destinationFile}) => {
   useEffect(() => {
     if (iframeRef.current) {
       const handleIframeLoad = () => {
-        // console.log("Handling load...")
+        // // * console.log("Handling load...")
         const contentDocument = iframeRef.current?.contentDocument
         if (contentDocument && contentDocument.body.innerHTML !== '') {
-          // console.log("Printing...")
+          // // * console.log("Printing...")
           iframeRef.current.contentWindow.print()
         }
       }

@@ -48,7 +48,7 @@ const AddContract = (props) => {
     //var projects = ProjectTestService.getAll();
 
     projectHTTPService.getAllProject().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setProjects(data.data);
 
     })

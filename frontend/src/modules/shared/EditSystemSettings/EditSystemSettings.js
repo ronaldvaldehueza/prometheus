@@ -22,7 +22,7 @@ const EditSystemSettings = () => {
   const getSystemSettings = () => {
     settingsHTTPService.getSystemSettings().then(data => {
       setSystemSettings(data.data[0])
-      console.log(data.data[0])
+      // * console.log(data.data[0])
     })
   }
 

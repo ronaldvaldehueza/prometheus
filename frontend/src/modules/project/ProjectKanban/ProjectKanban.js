@@ -49,7 +49,7 @@ class ProjectKanban extends Component {
         }
 
 
-        console.log(projectList)
+        // * console.log(projectList)
         /*   this.setState({
             cards: projectList,
             columns: initialColumns
@@ -69,9 +69,9 @@ class ProjectKanban extends Component {
           columns: initcolumn,
 
         })
-        console.log(this.state.columns)
+        // * console.log(this.state.columns)
       }).catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   }
 

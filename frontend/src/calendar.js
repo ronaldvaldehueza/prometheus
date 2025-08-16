@@ -3,7 +3,7 @@
 
  
 export function initCalendar(calendarEl) {
-    console.log(calendarEl);
+    // * console.log(calendarEl);
     
     document.addEventListener('DOMContentLoaded', function () {
         

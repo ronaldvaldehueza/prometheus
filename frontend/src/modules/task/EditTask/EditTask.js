@@ -25,12 +25,12 @@ const EditTask = (props) => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    // * console.log(data)
     taskHHTPService.editTask(props.task.id, data).then(data => {
       props.closeModal()
       showMessage('Confirmation', taskMessage.edit, 'success')
     }).catch(e => {
-      console.log(e)
+      // * console.log(e)
     })
 
   }
@@ -49,7 +49,7 @@ const EditTask = (props) => {
     //var projects = ProjectTestService.getAll();
     setLoading(true)
     projectHTTPService.getAllProject().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setProjects(data.data);
       setLoading(false)
     })
@@ -61,11 +61,11 @@ const EditTask = (props) => {
     userHTTPService.getAllUser()
       .then(response => {
         setUsers(response.data);
-        console.log(response.data)
+        // * console.log(response.data)
         setLoading(false)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 

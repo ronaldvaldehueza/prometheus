@@ -61,7 +61,7 @@ const Task = () => {
         setTasks(response.data);
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 
@@ -84,7 +84,7 @@ const Task = () => {
         setTasks(response.data);
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 
@@ -127,7 +127,7 @@ const Task = () => {
      );
  
      projectHTTPService.uploadFile(formData).then(res => {
-       console.log(res)
+       // * console.log(res)
      })
  
           < form method = "POST" className="" onSubmit = { handleSubmit(onSubmit) } enctype = "multipart/form-data" >
@@ -157,7 +157,7 @@ const Task = () => {
       setUpdatedItemId(e[0])
       const selectedItem = tasks.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

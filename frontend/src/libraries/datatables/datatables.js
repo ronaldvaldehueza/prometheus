@@ -25,7 +25,7 @@ export function LoadJS() {
     node.async = false;
     node.charset = 'utf-8';
     document.getElementById('root').appendChild(node);
-    console.log(i)
+    // * console.log(i)
   }
 
 

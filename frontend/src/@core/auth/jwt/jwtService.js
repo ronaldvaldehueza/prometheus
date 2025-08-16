@@ -102,7 +102,7 @@ export default class JwtService {
 
     return simulateLogin(loginDetails)
       .then(response => {
-        console.log('Login successful:', response)
+        // * console.log('Login successful:', response)
         return response
       })
       .catch(error => {

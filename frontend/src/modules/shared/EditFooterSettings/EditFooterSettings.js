@@ -29,7 +29,7 @@ const EditFooterSettings = () => {
 
   const onSubmit = (data) => {
     settingsHTTPService.editFooterSettings(footerSettings.id, data).then(data => {
-      console.log(data)
+      // * console.log(data)
       showMessage('Confirmation', CurrentUser.SETTINGS_UPDATE_MSG, 'success')
     })
   }

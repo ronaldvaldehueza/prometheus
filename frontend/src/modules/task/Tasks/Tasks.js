@@ -57,7 +57,7 @@ const Tasks = () => {
         setTasks(response.data);
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 
@@ -76,7 +76,7 @@ const Tasks = () => {
   const retrieveTasks = () => {
     taskHHTPService.getAllTask().then(data => {
       setTasks(data.data)
-      console.log(data.data)
+      // * console.log(data.data)
     });
     ;
   };
@@ -125,7 +125,7 @@ const Tasks = () => {
       setUpdatedItemId(e[0])
       const selectedItem = tasks.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

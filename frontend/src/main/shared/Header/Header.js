@@ -52,7 +52,7 @@ const Header = ({ connected, handleClick }) => {
     const getFooterSettings = () => {
         settingsHTTPService.getHeaderSettings().then(data => {
             setHeaderSettings(data.data[0])
-            console.log(data.data[0])
+            // * console.log(data.data[0])
         })
     }
 

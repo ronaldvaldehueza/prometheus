@@ -32,7 +32,7 @@ const AddMessage = () => {
         setMessage(initialState)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
 
   };

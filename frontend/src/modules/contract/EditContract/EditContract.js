@@ -20,12 +20,12 @@ const EditContract = (props) => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    // * console.log(data)
     contractHTTPService.editContract(props.contract.id, data).then(data => {
       props.closeModal()
       showMessage('Confirmation', "contractMessage.edit", 'success')
     }).catch(e => {
-      console.log(e)
+      // * console.log(e)
     })
 
   }

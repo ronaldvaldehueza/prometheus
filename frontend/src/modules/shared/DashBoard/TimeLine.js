@@ -37,7 +37,7 @@ const ProjectTimeLine = () => {
         setProjects(projectList)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 

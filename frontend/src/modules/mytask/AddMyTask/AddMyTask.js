@@ -30,7 +30,7 @@ const AddMyTask = () => {
         setMyTask(initialState)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
 
   };

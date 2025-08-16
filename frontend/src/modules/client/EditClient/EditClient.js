@@ -19,12 +19,12 @@ const EditClient = (props) => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    // * console.log(data)
     clientHTTPService.editClient(props.client.id, data).then(data => {
       props.closeModal()
       showMessage('Confirmation', clientMessage.edit, 'success')
     }).catch(e => {
-      console.log(e)
+      // * console.log(e)
     })
 
   }

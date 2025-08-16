@@ -39,7 +39,7 @@ const Configuration = () => {
 
   const getNotificationSettings = () => {
     settingsHTTPService.getNotificationSettings().then(data => {
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       setNotificationSettings(data.data[0])
       forceUpdate()
     })
@@ -62,8 +62,8 @@ const Configuration = () => {
 
   const getLocalisationSettings = () => {
     settingsHTTPService.getLocalisationSettings().then(data => {
-      console.log("localisation")
-      console.log(data.data[0])
+      // * console.log("localisation")
+      // * console.log(data.data[0])
       setLocalisationSettings(data.data[0])
       forceUpdate()
     })
@@ -71,14 +71,14 @@ const Configuration = () => {
   const getFooterSettings = () => {
     settingsHTTPService.getFooterSettings().then(data => {
       setFooterSettings(data.data[0])
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       forceUpdate()
     })
   }
 
   const getHeaderSettings = () => {
     settingsHTTPService.getHeaderSettings().then(data => {
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       setHeaderSettings(data.data[0])
       forceUpdate()
     })
@@ -87,7 +87,7 @@ const Configuration = () => {
   const getDashboardSettings = () => {
     settingsHTTPService.getDashboardSettings().then(data => {
       setDashboardSettings(data.data[0])
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       forceUpdate()
     })
   }

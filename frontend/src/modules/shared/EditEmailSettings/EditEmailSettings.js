@@ -20,7 +20,7 @@ const EditEmailSettings = () => {
 
   const getEmailSettings = () => {
     settingsHTTPService.getEmailSettings().then(data => {
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       setEmailSettings(data.data[0])
 
     })
@@ -28,7 +28,7 @@ const EditEmailSettings = () => {
 
   const onSubmit = (data) => {
     settingsHTTPService.editEmailSettings(emailSettings.id, data).then(data => {
-      console.log(data)
+      // * console.log(data)
       showMessage('Confirmation', 'activityMessage.edit', 'success')
     })
   }

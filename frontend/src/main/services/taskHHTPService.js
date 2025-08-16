@@ -6,7 +6,7 @@ const getAllTask = () => {
 }
 
 const getAllMyTask = (user) => {
-    console.log(`${BASE_URL}/api/mytask/${user}`)
+    // * console.log(`${BASE_URL}/api/mytask/${user}`)
     return http.get(`${BASE_URL}/api/mytask/${user}`)
 }
 

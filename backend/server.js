@@ -22,12 +22,18 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs')
 
 // 2. CORS & body parsing — *before* any routes
-const allowedOrigins = [
-  'http://proma.worldcloud9.com',
-  'https://proma.worldcloud9.com',
-  'http://nodejs.worldcloud9.com',
-  'https://nodejs.worldcloud9.com'
-]
+const allowedOrigins =
+  process.env.NODE_ENV === 'production'
+    ? [
+        'http://proma.worldcloud9.com',
+        'https://proma.worldcloud9.com',
+        'http://nodejs.worldcloud9.com',
+        'https://nodejs.worldcloud9.com'
+      ]
+    : [
+        'http://localhost:3000', // dev
+        'http://127.0.0.1:3000'
+      ];
 
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions

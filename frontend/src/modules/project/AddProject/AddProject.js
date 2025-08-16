@@ -33,7 +33,7 @@ const AddProject = (props) => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    // * console.log(data)
     //saveProject(data)
     // ProjectTestService.create(data)
     projectHTTPService.createProject(data).then(data => {
@@ -76,11 +76,11 @@ const AddProject = (props) => {
     userHTTPService.getAllUser()
       .then(response => {
         setUsers(response.data);
-        console.log(response.data)
+        // * console.log(response.data)
         setLoading(false)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 

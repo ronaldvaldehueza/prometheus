@@ -30,9 +30,9 @@ const EditLocalisationSettings = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(localisationSettings.id)
+    // * console.log(localisationSettings.id)
     settingsHTTPService.editLocalisationSettings(localisationSettings.id, data).then(data => {
-      console.log(data)
+      // * console.log(data)
       showMessage('Confirmation', CurrentUser.SETTINGS_UPDATE_MSG, 'success')
     })
   }

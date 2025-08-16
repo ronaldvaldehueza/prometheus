@@ -19,7 +19,7 @@ const Footer = ({ connected }) => {
   const getFooterSettings = () => {
     settingsHTTPService.getFooterSettings().then(data => {
       setFooterSettings(data.data[0])
-      console.log(data.data[0])
+      // * console.log(data.data[0])
     })
   }
   return (

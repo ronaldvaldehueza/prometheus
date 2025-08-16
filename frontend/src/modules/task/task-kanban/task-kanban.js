@@ -42,7 +42,7 @@ class TaskKanban extends Component {
   todo = []
   componentWillMount() {
 
-    //console.log(projectList.slice(i * 3, i * 3 + 3).map(card => card.id))
+    //// * console.log(projectList.slice(i * 3, i * 3 + 3).map(card => card.id))
     let taskList = []
     taskHHTPService.getAllTask()
       .then(response => {
@@ -57,7 +57,7 @@ class TaskKanban extends Component {
         }
 
 
-        console.log(taskList)
+        // * console.log(taskList)
         /*   this.setState({
             cards: projectList,
             columns: initialColumns
@@ -65,7 +65,7 @@ class TaskKanban extends Component {
           }) */
 
         taskList.filter(s => s.filter == "ToDo").map(card => {
-          console.log(card.id)
+          // * console.log(card.id)
           return card.id
         })
 
@@ -82,10 +82,10 @@ class TaskKanban extends Component {
           columns: initcolumn,
 
         })
-        console.log("jjjj")
-        console.log(taskList)
+        // * console.log("jjjj")
+        // * console.log(taskList)
       }).catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   }
 

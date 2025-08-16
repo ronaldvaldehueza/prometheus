@@ -42,7 +42,7 @@ const Projects = () => {
   }
 
   const closeModalAdd = (data) => {
-    console.log('close')
+    // * console.log('close')
     closeButtonAdd.current.click()
   }
   useEffect(() => {
@@ -59,7 +59,7 @@ const Projects = () => {
     //var projects = ProjectTestService.getAll();
     setLoading(true)
     projectHTTPService.getAllProject().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setProjects(data.data);
       setLoading(false)
     })
@@ -93,7 +93,7 @@ const Projects = () => {
 
   const copy = (e, data) => {
     projectHTTPService.copyProject(data.id).then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       //buttonEdit.current.click()
       //update(data.data)
       resfresh()
@@ -117,7 +117,7 @@ const Projects = () => {
       setUpdatedItemId(e[0])
       const selectedItem = projects.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

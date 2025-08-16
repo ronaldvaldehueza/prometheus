@@ -35,7 +35,7 @@ const AddTask = (props) => {
   const onSubmit = (data) => {
     //saveTask(data)
     //TaskTestService.create(data)
-    console.log(data)
+    // * console.log(data)
     taskHHTPService.createTask(data).then(data => {
       setTask(initialState)
       showMessage('Confirmation', taskMessage.add, 'success')
@@ -51,7 +51,7 @@ const AddTask = (props) => {
         setTask(initialState)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
 
   };
@@ -72,7 +72,7 @@ const AddTask = (props) => {
     //var projects = ProjectTestService.getAll();
     setLoading(true)
     projectHTTPService.getAllProject().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setProjects(data.data);
       setLoading(false)
     })
@@ -84,11 +84,11 @@ const AddTask = (props) => {
     userHTTPService.getAllUser()
       .then(response => {
         setUsers(response.data);
-        console.log(response.data)
+        // * console.log(response.data)
         setLoading(false)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 

@@ -49,7 +49,7 @@ const Note = () => {
 
   const retrieveNotes = () => {
     noteHTTPService.getAllNote().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setNotes(data.data);
     });
 
@@ -93,7 +93,7 @@ const Note = () => {
       setUpdatedItemId(e[0])
       const selectedItem = notes.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

@@ -125,7 +125,7 @@ const DashBoard = () => {
   const getDashboardSettings = () => {
     settingsHTTPService.getDashboardSettings().then(data => {
       setDashboardSettings(data.data[0])
-      console.log(dashboardSettings)
+      // * console.log(dashboardSettings)
 
     })
   }
@@ -133,13 +133,13 @@ const DashBoard = () => {
   const loadChartData = () => {
     setLoading(true)
     projectHTTPService.findprojectByStatus().then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setProject(data.data)
       setLoading(false)
     })
     // var tasks = MyTaskTestService.getAll();
     taskHHTPService.getAllMyTask(User.USER_DETAIL.username).then(data => {
-      console.log(data.data)
+      // * console.log(data.data)
       setTasks(data.data)
     })
     projectHTTPService.getTodo().then(data => {

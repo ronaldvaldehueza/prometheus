@@ -38,7 +38,7 @@ const Login = ({ handleClick }) => {
       })
       .catch(e => {
         showMessage('Error', "HTTP_ERR_MESSAGE", 'warning')
-        console.log(e)
+        // * console.log(e)
       });
 
 

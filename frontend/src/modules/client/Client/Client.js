@@ -126,7 +126,7 @@ const Client = () => {
       setUpdatedItemId(e[0])
       const selectedItem = clients.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

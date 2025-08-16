@@ -86,7 +86,7 @@ const Teams = () => {
       setUpdatedItemId(e[0])
       const selectedItem = teams.find(item => item.id == e[0])
       setUpdatedItem(selectedItem)
-      console.log(updatedItem);
+      // * console.log(updatedItem);
     }
     setUpdatedItemIds(e)
 

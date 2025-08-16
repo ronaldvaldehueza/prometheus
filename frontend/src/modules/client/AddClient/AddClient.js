@@ -41,7 +41,7 @@ const AddClient = (props) => {
         setClient(initialState)
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
 
   };

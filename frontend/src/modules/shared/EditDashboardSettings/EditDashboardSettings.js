@@ -23,7 +23,7 @@ const EditDashboardSettings = () => {
 
   const getDashboardSettings = () => {
     settingsHTTPService.getDashboardSettings().then(data => {
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       setDashboardSettings(data.data[0])
 
     })
@@ -31,7 +31,7 @@ const EditDashboardSettings = () => {
 
   const onSubmit = (data) => {
     settingsHTTPService.editDashboardSettings(dashboardSettings.id, data).then(data => {
-      console.log(data)
+      // * console.log(data)
       showMessage('Confirmation', CurrentUser.SETTINGS_UPDATE_MSG, 'success')
     })
   }

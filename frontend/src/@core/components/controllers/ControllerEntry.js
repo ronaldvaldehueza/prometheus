@@ -52,7 +52,7 @@ const ControllerInput = ({
             rules={mergedRules}
             render={({ field, fieldState }) => {
 
-                // console.log(field.name, field.value)
+                // // * console.log(field.name, field.value)
                 return (
                     <>
                     { inputType?.toUpperCase() === 'DATE' ? 

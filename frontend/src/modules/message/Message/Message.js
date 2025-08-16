@@ -35,7 +35,7 @@ const Message = () => {
         setMessages(response.data);
       })
       .catch(e => {
-        console.log(e);
+        // * console.log(e);
       });
   };
 

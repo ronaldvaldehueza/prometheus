@@ -25,7 +25,7 @@ const EditNotificationsSettings = () => {
 
   const getNotificationsSettings = () => {
     settingsHTTPService.getNotificationSettings().then(data => {
-      console.log(data.data[0])
+      // * console.log(data.data[0])
       setNotificationsSettings(data.data[0])
 
     })
@@ -33,7 +33,7 @@ const EditNotificationsSettings = () => {
 
   const onSubmit = (data) => {
     settingsHTTPService.editNotificationsSettings(notificationsSettings.id, data).then(data => {
-      console.log(data)
+      // * console.log(data)
       showMessage('Confirmation', CurrentUser.SETTINGS_UPDATE_MSG, 'success')
     })
   }

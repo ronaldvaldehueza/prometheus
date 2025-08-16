@@ -28,7 +28,7 @@ const getInfoCardBgImage = infoCardBgImagePath => {
 
     const currentHour = new Date().getHours()
     const currentHourImage = hourMappings[currentHour]
-    // console.log(currentHour)
+    // // * console.log(currentHour)
     return  `${infoCardBgImagePath}/vcron/card-backgrounds/${currentHourImage}-sm.jpg`
 }
 
