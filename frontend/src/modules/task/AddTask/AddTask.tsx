@@ -1,0 +1,187 @@
+import './AddTask.css';
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import showMessage from '../../../libraries/messages/messages';
+import taskMessage from '../../../main/messages/taskMessage';
+import taskValidation from '../../../main/validations/taskValidation';
+import taskHHTPService from '../../../main/services/taskHHTPService';
+import projectHTTPService from '../../../main/services/projectHTTPService';
+import userHTTPService from '../../../main/services/userHTTPService';
+
+interface AddTaskProps {
+  closeModal: () => void;
+}
+
+interface TaskState {
+  project: string;
+  description: string;
+  title: string;
+  deadline: string;
+  priority: string;
+  status: string;
+  assigned: string;
+}
+
+interface UserData {
+  id: number;
+  username: string;
+  name: string;
+}
+
+interface ProjectData {
+  id: number;
+  title: string;
+}
+
+const AddTask: React.FC<AddTaskProps> = ({ closeModal }) => {
+  const initialState: TaskState = {
+    project: "",
+    description: "",
+    title: "",
+    deadline: "",
+    priority: "",
+    status: "",
+    assigned: ""
+  };
+
+  const { register, handleSubmit, errors } = useForm();
+  const [task, setTask] = useState<TaskState>(initialState);
+  const [users, setUsers] = useState<UserData[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+
+  const onSubmit = (data: TaskState) => {
+    taskHHTPService.createTask(data).then(() => {
+      setTask(initialState);
+      showMessage('Confirmation', taskMessage.add, 'success');
+      closeModal();
+    });
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setTask({ ...task, [name]: value });
+  };
+
+  useEffect(() => {
+    retrieveUsers();
+    retrieveProjects();
+  }, []);
+
+  const retrieveProjects = () => {
+    setLoading(true);
+    projectHTTPService.getAllProject().then((response: { data: ProjectData[] }) => {
+      setProjects(response.data);
+      setLoading(false);
+    });
+  };
+
+  const retrieveUsers = () => {
+    setLoading(true);
+    userHTTPService.getAllUser()
+      .then((response: { data: UserData[] }) => {
+        setUsers(response.data);
+        setLoading(false);
+      })
+      .catch(e => {
+        console.log(e);
+        setLoading(false);
+      });
+  };
+
+  return (
+    <div className="AddTask">
+      <form method="POST" className="" onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group">
+          <label>Title<span className="text-danger">*</span></label>
+          <input ref={register({ required: true })} onChange={handleInputChange}
+            value={task.title} type="text" name="title" className="form-control" required />
+          <div className="error text-danger">
+            {errors.title && taskValidation.title}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Project<span className="text-danger">*</span></label>
+          <select ref={register({ required: true })} onChange={handleInputChange}
+            value={task.project} name="project_id" id="project"
+            className="selectpicker form-control border-0 mb-1 px-4 py-4 rounded shadow" tabIndex={-1} aria-hidden="true">
+            {projects.map(item =>
+              <option key={item.id} value={item.title}>{item.title}</option>
+            )}
+          </select>
+          <div className="error text-danger">
+            {errors.project_id && taskValidation.project_id}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Short Description<span className="text-danger">*</span></label>
+          <textarea ref={register({ required: true })} onChange={handleInputChange}
+            value={task.description} name="description" className="form-control"></textarea>
+          <div className="error text-danger">
+            {errors.description && taskValidation.description}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Due Date<span className="text-danger">*</span></label>
+          <input ref={register({ required: true })} onChange={handleInputChange}
+            value={task.deadline} type="date" name="deadline" className="form-control datepicker" required />
+          <div className="error text-danger">
+            {errors.due_date && taskValidation.due_date}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Priority<span className="text-danger">*</span></label>
+          <select ref={register({ required: true })} onChange={handleInputChange}
+            value={task.priority} name="priority" className="selectpicker form-control border-0 mb-1 px-4 py-4 rounded shadow" required tabIndex={-1} aria-hidden="true">
+            <option id="low" value="Low">Low</option>
+            <option id="medium" value="Medium">Medium</option>
+            <option id="high" value="High">High</option>
+          </select>
+          <div className="error text-danger">
+            {errors.priority && taskValidation.priority}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Status<span className="text-danger">*</span></label>
+          <select ref={register({ required: true })} onChange={handleInputChange}
+            value={task.status} name="status" className="selectpicker form-control border-0 mb-1 px-4 py-4 rounded shadow"
+            required tabIndex={-1} aria-hidden="true">
+            <option id="todo" value="Todo">Todo</option>
+            <option id="inprogress" value="In Progress">In Progress</option>
+            <option id="inreview" value="In Review">In Review</option>
+            <option id="completed" value="Completed">Completed</option>
+          </select>
+          <div className="error text-danger">
+            {errors.status && taskValidation.status}
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>User </label>
+          <select ref={register({ required: true })}
+            onChange={handleInputChange}
+            value={task.assigned} name="assigned" id="users_append"
+            className="selectpicker form-control border-0 mb-1 px-4 py-4 rounded shadow">
+            {users.map(item =>
+              <option key={item.id} value={item.username}>{item.name}</option>
+            )}
+          </select>
+          <div className="error text-danger">
+            {errors.users && taskValidation.users}
+          </div>
+        </div>
+
+        <button type="submit" id="save-form" className="btn btn-success"><i className="fa fa-check"></i>
+          Save
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default AddTask;
